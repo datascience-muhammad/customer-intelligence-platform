@@ -16,4 +16,3 @@ faker
 
 # Optional: HTTP client for internal tests (e.g. test_shopflow_api.py)
 requests
-matplotlib
