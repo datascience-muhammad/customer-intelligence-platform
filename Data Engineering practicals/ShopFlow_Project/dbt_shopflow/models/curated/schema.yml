@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "Customer dimension with aggregated order and support-ticket metrics"
+    columns:
+      - name: customer_id
+        tests: [not_null, unique]
+      - name: total_support_tickets
+        description: "Total support tickets per customer"
+
+  - name: fact_orders
+    description: "Transactional orders fact"
+    columns:
+      - name: customer_id
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_id
+      - name: order_id
+        tests: [not_null, unique]
+  - name: dim_products
+    description: "Product dimension"
+    columns:
+      - name: product_id
+        tests: [not_null, unique]
+  - name: dim_dates
+    description: "Date dimension"
+    columns:
+      - name: date_id
+        tests: [not_null, unique]
+
+  - name: fact_events
+    description: "Customer events fact"
+    columns:
+      - name: event_id
+        tests: [not_null, unique]
+      - name: customer_id
+        tests:
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_id
+
+  - name: ml_features
+    description: "Precomputed ML features per customer"
+    columns:
+      - name: customer_id
+        tests: [not_null, unique]
+ 
+ 

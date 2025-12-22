@@ -1,0 +1,33 @@
+version: 2
+models:
+  - name: stg_customers
+    description: "Cleaned customers"
+    columns:
+      - name: customer_id
+        tests: [not_null, unique]
+      - name: email
+        tests: [not_null]
+
+  - name: stg_orders
+    description: "Cleaned orders"
+    columns:
+      - name: order_id
+        tests: [not_null, unique]
+      - name: customer_id
+        tests: [not_null]
+
+  - name: stg_products
+    description: "Cleaned products"
+
+  - name: stg_events
+    description: "Cleaned events"
+
+  - name: stg_inventory
+    description: "Cleaned inventory"
+  - name: stg_support_tickets
+    description: "Staging support tickets from API"
+    columns:
+      - name: ticket_id
+        tests: [not_null, unique]
+      - name: customer_id
+        tests: [not_null]
