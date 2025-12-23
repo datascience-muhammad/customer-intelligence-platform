@@ -1,3 +1,0 @@
-version: 2
-# Schema placeholders removed to avoid duplicate resource declarations.
-# Staging model schemas are declared in `models/staging/schema.yml`.
