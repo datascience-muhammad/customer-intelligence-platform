@@ -20,6 +20,3 @@ Notes:
 - Ensure your `.env` contains DB, S3, and AWS credentials and is present at the repository root. The compose file uses `env_file: .env` so sensitive values remain out of source control.
 - If you prefer Astronomer/Astro-managed images, replace the `FROM` line in `docker/Dockerfile` with the Astronomer base image and adjust tags accordingly.
 
-If you want, I can now:
-- Build and start the docker-compose stack here (will require Docker installed and running in this environment).
-- Or adjust the DAG to run dbt via a `DockerOperator` that uses a separate dbt image instead of installing dbt into the Airflow image.
