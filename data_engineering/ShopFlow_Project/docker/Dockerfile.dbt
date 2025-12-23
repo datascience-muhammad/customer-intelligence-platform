@@ -1,0 +1,21 @@
+FROM python:3.11-slim
+
+USER root
+
+# Install build deps required for some python packages and Postgres client headers
+RUN apt-get update \
+	&& apt-get install -y --no-install-recommends build-essential libpq-dev gcc git curl \
+	&& pip install --upgrade pip setuptools wheel \
+	&& rm -rf /var/lib/apt/lists/*
+
+# Install dbt-postgres (pinned to the project's tested version)
+RUN pip install dbt-postgres==1.5.6
+
+# Copy the dbt project into the image so the image can run dbt without mounting
+WORKDIR /usr/app
+COPY ../dbt_shopflow /usr/app/dbt_shopflow
+
+WORKDIR /usr/app/dbt_shopflow
+
+# Default entrypoint: print dbt version and leave a shell
+CMD ["/bin/sh", "-c", "dbt --version && exec bash"]

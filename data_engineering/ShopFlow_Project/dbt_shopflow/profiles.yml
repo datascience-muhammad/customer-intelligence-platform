@@ -1,0 +1,13 @@
+shopflow:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('DBT_POSTGRES_HOST', 'postgres') }}"
+      user: "{{ env_var('DBT_POSTGRES_USER', 'postgres') }}"
+      password: "{{ env_var('DBT_POSTGRES_PASSWORD', 'postgres') }}"
+      port: "{{ env_var('DBT_POSTGRES_PORT', '5432') | as_number }}"
+      dbname: "{{ env_var('DBT_POSTGRES_DBNAME', 'shopflow') }}"
+      schema: "{{ env_var('DBT_POSTGRES_SCHEMA', 'raw') }}"
+      threads: 4
+      keepalives_idle: 0
