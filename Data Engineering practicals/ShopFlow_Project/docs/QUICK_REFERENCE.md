@@ -116,7 +116,13 @@ docker-compose exec \
 - `stg_support_tickets` - Cleaned support tickets
 
 ### Curated Tables (raw_curated schema)
-- [Pending models to be configured]
+-  - `dim_customers`: Cleaned customer data
+     - `dim_products`: Cleaned products data
+     - `dim_dates`Cleaned dates data
+     - `fact_orders`: Cleaned facts data
+     - `fact_events`: Cleaned events
+     - `ml_features`: Cleaned ml_features
+     - `support_tickets`: Cleaned support_tickets data
 
 ---
 
