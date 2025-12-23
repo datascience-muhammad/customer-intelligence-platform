@@ -91,3 +91,8 @@ desktop.ini
 *.bak
 *.swp
 build.log
+
+# Exclude parent directories (only track ShopFlow_Project)
+/**/..
+..
+../../
