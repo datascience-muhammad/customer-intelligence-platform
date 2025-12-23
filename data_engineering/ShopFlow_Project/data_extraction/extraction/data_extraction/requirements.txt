@@ -1,0 +1,24 @@
+# ShopFlow Data Extraction - Python Dependencies
+
+# Database connectivity
+psycopg2-binary==2.9.9
+
+# Data manipulation (use pre-built wheel)
+pandas>=2.0.0
+
+# AWS S3 integration
+boto3>=1.26.0
+
+# API requests
+requests>=2.28.0
+
+# Parquet file format
+pyarrow>=13.0.0
+
+# Environment variable management
+python-dotenv>=1.0.0
+
+#dbt-core for data transformations
+dbt-core==1.5.0
+dbt-postgres==1.5.0
+dbt-athena-adapter==1.5.0
