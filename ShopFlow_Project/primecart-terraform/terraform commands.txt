@@ -1,0 +1,5 @@
+cd "c:\Users\David Ibanga\Data Engineering practicals\ShopFlow_Project\primecart-terraform"; terraform init
+terraform validate
+terraform plan -var-file="env/dev.tfvars"
+terraform apply -var-file="env/dev.tfvars" -auto-approve
+terraform output
